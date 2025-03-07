@@ -7,7 +7,7 @@ class JsonInputProcessor:
         pass
 
     @staticmethod
-    def put_in_markdown(input_dict: dict, need_escape: bool = False) -> str:
+    def put_in_markdown(input_dict: dict | list, need_escape: bool = False) -> str:
         json_str = JsonInputProcessor.serialize_dict_to_json(input_dict)
         result = JsonInputProcessor.wrap_in_markdown(json_str)
         if need_escape:
@@ -42,3 +42,4 @@ class JsonInputProcessor:
 if __name__ == '__main__':
     pass
     print(JsonInputProcessor.put_in_markdown({"a": 1, "b": 2}, need_escape=True))
+    print(JsonInputProcessor.put_in_markdown([1, 2, 3]))
