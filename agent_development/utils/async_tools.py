@@ -22,7 +22,7 @@ async def async_wrap(sync_func: Callable, *args, **kwargs) -> Coroutine[Any, Any
     return asyncio.to_thread(sync_func, *args, **kwargs)
 
 
-async def run_parallel(async_func: Callable, arg_list: List[Tuple]):
+async def run_parallel(async_func: Callable, arg_list: List[Tuple]) -> Tuple[Any]:
     """
     并行运行大量协程。
     Args:
