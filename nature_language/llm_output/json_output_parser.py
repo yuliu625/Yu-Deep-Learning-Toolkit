@@ -7,8 +7,8 @@
 import json
 import re
 
-from typing import Type
 from pydantic import BaseModel
+from typing import Annotated, Type
 
 
 class JsonOutputParser:
@@ -22,7 +22,7 @@ class JsonOutputParser:
     @staticmethod
     def extract_json_from_str(
         raw_str: str,
-        schema_model: Type[BaseModel] = None,  # 进行schema检测的dataclass，如果不输入，则不会进行检测。
+        schema_model: Annotated[Type[BaseModel], "进行schema检测的dataclass，如果不输入，则不会进行检测。"] = None,
     ) -> dict | list | None:
         """
         主要方法。从字符串格式中提取json格式的输出结果。
@@ -31,7 +31,8 @@ class JsonOutputParser:
         Args:
             raw_str: LLM输出的str部分。
             schema_model: pydantic定义的数据类。当有这个参数，会进行structured output检测。
-        Return:
+
+        Returns:
             dict | list 正常解析。输出可用于处理的structured output。
             None 解析失败。可能有多种原因，或许需要重试机制（最简单，也是这个类的目的。）。
         """
@@ -57,7 +58,8 @@ class JsonOutputParser:
         Args:
             raw_str: 完全未处理的字符串结果
             index_to_choose: 选择提取的索引。可能会输出多个结果。默认提取最后一个。
-        Return:
+
+        Returns:
            str 正常提取。
            None 没有结果。
         """
@@ -79,7 +81,8 @@ class JsonOutputParser:
 
         Args:
             raw_data_str: 已经是structured data，但数据类型是str的输入。
-        Return:
+
+        Returns:
             dict | list: 转换成功。
             None: 转换失败。
         """
@@ -108,7 +111,8 @@ class JsonOutputParser:
         Args:
             raw_data: json数据，实际上这一步已经是python的dict的数据。
             schema_model: pydantic定义的数据类。
-        Return:
+
+        Returns:
             dict | list: 通过检测。但是不进行dataclass加载，而是又外部代码实现。
             None: 未通过检测。
             可以设计未输出bool，但是为了和这个工具类中其他方法兼容，统一设置为相同的输出方式。
