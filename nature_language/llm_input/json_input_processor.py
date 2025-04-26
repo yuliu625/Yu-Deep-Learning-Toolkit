@@ -23,7 +23,8 @@ class JsonInputProcessor:
         Args:
             input_structured_data: 输入的数据。默认为python的dict或list。dict最好为record形式。
             need_escape: 处理{}使得可以应用于f-string。标准处理不应该使用，因此默认为false。
-        Return:
+
+        Returns:
             转换完成的字符串。
         """
         # 转换为字符串。
@@ -48,9 +49,11 @@ class JsonInputProcessor:
     def wrap_in_markdown(json_str: str) -> str:
         """
         将已经转换好的json数据放入markdown的代码块中。
+
         Args:
             json_str: 字符串的json.不可以是dict，否则会有一个很小的问题是: 引号是单引号。
-        Return:
+
+        Returns:
             字符串的结构化输入。
         """
         return f"```json\n{json_str}\n```"
@@ -61,6 +64,7 @@ class JsonInputProcessor:
         替换大括号。
 
         主要为了使得f-string可以正常解析。
+        在我使用基于jinja2的模板以及langchain的PromptTemplate之后，这个方法基本不再被使用。
         """
         string = string.replace("{", "{{").replace("}", "}}")
         return string
