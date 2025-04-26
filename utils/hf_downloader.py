@@ -18,11 +18,11 @@ from abc import ABC, abstractmethod
 class HFDownloaderInterface(ABC):
     @abstractmethod
     async def download_models(self, *args, **kwargs):
-        ...
+        """批量下载模型。"""
 
     @abstractmethod
     async def download_datasets(self, *args, **kwargs):
-        ...
+        """批量下载数据集"""
 
 
 class HFDownloader(HFDownloaderInterface):
