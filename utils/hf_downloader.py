@@ -5,14 +5,15 @@
 单独配置和运行这个文件，将指定仓库下载到本地。
 """
 
-
-from huggingface_hub import hf_hub_download, snapshot_download
-
-import os
-from pathlib import Path
+from abc import ABC, abstractmethod
 import asyncio
 
-from abc import ABC, abstractmethod
+from huggingface_hub import hf_hub_download, snapshot_download
+import os
+from pathlib import Path
+
+from typing import TYPE_CHECKING
+# if TYPE_CHECKING:
 
 
 class HFDownloaderInterface(ABC):
@@ -122,3 +123,4 @@ if __name__ == "__main__":
 
     # asyncio.run(downloader.download_models(model_repo_ids))
     asyncio.run(downloader.download_datasets(dataset_repo_ids))
+
