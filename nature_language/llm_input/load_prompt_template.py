@@ -2,10 +2,13 @@
 从指定路径加载prompt-template的方法。
 """
 
-from langchain.prompts import PromptTemplate
+from __future__ import annotations
 
+from langchain.prompts import PromptTemplate
 from pathlib import Path
-from typing import Annotated
+
+from typing import TYPE_CHECKING, Annotated
+# if TYPE_CHECKING:
 
 
 def load_prompt_template(
@@ -23,7 +26,7 @@ def load_prompt_template(
         prompt_template_path: prompt-template在本地保存的路径。
 
     Returns:
-        可以直接进行format操作的prompt-template。
+        PromptTemplate: 可以直接进行format操作的prompt-template。
     """
     prompt_template = PromptTemplate.from_file(
         template_file=prompt_template_path,
@@ -39,6 +42,3 @@ def load_prompt_template(
 #         prompt_template = f.read()
 #     return prompt_template
 
-
-if __name__ == '__main__':
-    pass
