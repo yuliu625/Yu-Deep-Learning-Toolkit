@@ -46,3 +46,4 @@ if __name__ == '__main__':
         user_message: str = input('User >_ ')
         ai_message = chat_with_model(user_message)
         print(f"AI >_ {ai_message}")
+
