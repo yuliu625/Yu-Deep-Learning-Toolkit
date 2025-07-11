@@ -5,6 +5,7 @@
 单独配置和运行这个文件，将指定仓库下载到本地。
 """
 
+from __future__ import annotations
 from abc import ABC, abstractmethod
 import asyncio
 
@@ -98,7 +99,11 @@ class HFDownloader(HFDownloaderInterface):
         """
         try:
             # 下载数据集
-            snapshot_download(repo_id=repo_id, local_dir=self.local_dataset_dir / repo_id, repo_type="dataset")  # 如果是数据集
+            snapshot_download(
+                repo_id=repo_id,
+                local_dir=self.local_dataset_dir / repo_id,
+                repo_type="dataset",  # 如果是数据集
+            )
             print(f"下载完成: {repo_id} 已保存到 {self.local_dataset_dir / repo_id}")
         except Exception as e:
             print(f"下载失败: {e}")
