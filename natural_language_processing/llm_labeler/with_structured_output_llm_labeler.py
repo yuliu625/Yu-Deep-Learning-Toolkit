@@ -4,10 +4,12 @@
 
 from __future__ import annotations
 
+from langchain_core.messages import HumanMessage
+
 from typing import TYPE_CHECKING, cast
 if TYPE_CHECKING:
     from langchain_core.language_models import BaseChatModel
-    from langchain_core.messages import SystemMessage, HumanMessage
+    from langchain_core.messages import SystemMessage
     from pydantic import BaseModel
 
 
