@@ -21,19 +21,21 @@ from openai import OpenAI
 
 import os
 from pathlib import Path
+import json
 
 from typing import TYPE_CHECKING
-# if TYPE_CHECKING:
+if TYPE_CHECKING:
+    from pydantic import BaseModel
 
 
 class QwenLongReader:
     @staticmethod
     def read_file(
         file_id: str,
-        system_message_str: str,
-        human_message_str: str,
-        result_path: str,
-    ):
+        system_message_content: str,
+        human_message_content: str,
+        result_path: str | Path,
+    ) -> BaseModel:
         # 构造client，使用OpenAI Client兼容方法。
         client = OpenAI(
             # HARDCODED
@@ -44,13 +46,22 @@ class QwenLongReader:
             # HARDCODED
             model="qwen-long",
             messages=[
-                # sys1: 角色定义
-                {'role': 'system', 'content': 'You are a helpful assistant.'},
-                # sys2: 文档内容（纯文本或file-id）
+                # System1: instruction
+                {'role': 'system', 'content': system_message_content},
+                # System2: file content
                 {'role': 'system', 'content': f'fileid://{file_id}'},
-                #
-                {'role': 'user', 'content': '这篇文章讲了什么?'}
+                # Human Message: task
+                {'role': 'user', 'content': human_message_content},
             ],
         )
-        logger.info(f"completion: \n{completion}")
+        logger.trace(f"completion: \n{completion}")
+        # 路径处理。
+        result_path = Path(result_path)
+        result_path.parent.mkdir(parents=True, exist_ok=True)
+        # save result
+        result_path.write_text(
+            json.dumps(completion.model_dump(), ensure_ascii=False, indent=4),
+            encoding='utf-8',
+        )
+        return completion
 
