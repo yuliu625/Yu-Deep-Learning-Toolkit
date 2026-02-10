@@ -47,7 +47,7 @@ class YuLabeler:
     async def batch_label_datas(
         self,
         datas: list[str],
-    ) -> list[str]:
+    ) -> tuple[str]:
         tasks = [self.label_data(data=data) for data in datas]
         return await asyncio.gather(*tasks)
 
@@ -55,7 +55,7 @@ class YuLabeler:
     async def label_data(
         self,
         data: str,
-    ) -> BaseModel:
+    ) -> BaseModel | None:
         for _ in range(self._max_retries):
             response = await self._call_llm(
                 human_message=HumanMessage(content=data),
