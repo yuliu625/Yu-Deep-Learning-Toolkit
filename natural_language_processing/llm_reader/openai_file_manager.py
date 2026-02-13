@@ -8,7 +8,8 @@ Synopsis:
     基于 OpenAI SDK 的文件管理方法。
 
 Notes:
-
+    封装了基础的增删改查方法。
+    添加了批量处理方法。
 """
 
 from __future__ import annotations
