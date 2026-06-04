@@ -1,10 +1,17 @@
 """
-这里是强化的对于checkpoint的保存和加载。
-默认处理model、optimizer、scheduler。
+Sources:
 
-设计了没有scheduler的情况，但是按照我的trainer的设计，scheduler是一定有的。
+References:
 
-后来这里主要的方法被lightning中的ModelCheckpoint替代了，不过我依然会再加入一些特定情况的功能。
+Synopsis:
+
+Notes:
+    这里是强化的对于 checkpoint 的保存和加载。
+    默认处理 model、optimizer、scheduler 。
+
+    设计了没有 scheduler 的情况，但是按照我的 trainer 的设计，scheduler 是一定有的。
+
+    后来这里主要的方法被 lightning 中的 ModelCheckpoint 替代了，不过我依然会再加入一些特定情况的功能。
 """
 
 import torch
