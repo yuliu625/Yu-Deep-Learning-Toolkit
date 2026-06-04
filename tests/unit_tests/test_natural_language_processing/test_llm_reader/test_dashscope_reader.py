@@ -3,14 +3,12 @@
 """
 
 from __future__ import annotations
-import pytest
-from loguru import logger
 
-from natural_language_processing.llm_reader.dashscope_reader import (
+from _old_or_discarded._llm_methods.llm_reader.dashscope_reader import (
     QwenLongReader,
 )
 
-from typing import TYPE_CHECKING
+
 # if TYPE_CHECKING:
 
 
