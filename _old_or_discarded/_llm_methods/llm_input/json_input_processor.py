@@ -2,10 +2,10 @@
 将python中的结构化数据转换为json格式的字符串。
 
 使用场景为:
-    - 将结构化数据传递给LLM。
+    - 将结构化数据传递给 LLM 。
 
 我的工程规范:
-    - 结构化参数以json格式传递，并且用markdown-code-cell显式说明。
+    - 结构化参数以 json 格式传递，并且用 markdown-code-cell 显式说明。
 """
 
 from __future__ import annotations
@@ -18,8 +18,8 @@ class JsonInputProcessor:
     工具类，将结构化数据转换为字符串格式。
 
     主要方法:
-        - put_in_markdown: 主要方法，将结构化数据转换并放入markdown-code-cell中。
-        - get_json_str_from_python_structured_data: 主要实现方法，和put_in_markdown区别仅不包裹markdown-code-cell。
+        - put_in_markdown: 主要方法，将结构化数据转换并放入 markdown-code-cell 中。
+        - get_json_str_from_python_structured_data: 主要实现方法，和 put_in_markdown 区别仅不包裹 markdown-code-cell 。
     """
 
     # ====主要方法。====
@@ -29,11 +29,11 @@ class JsonInputProcessor:
         # need_escape: bool = False  # 这个参数几乎被完全放弃了，但仅注释相关代码。
     ) -> str:
         """
-        主要方法。将结构化数据自动转化为markdown cell中的字符串。
+        主要方法。将结构化数据自动转化为 markdown cell 中的字符串。
 
         Args:
-            original_structured_data (Union[dict, list]): 输入的数据。默认为python的dict或list。dict最好为record形式。
-            # need_escape (bool): 处理{}使得可以应用于f-string。标准处理不应该使用，因此默认为false。
+            original_structured_data (Union[dict, list]): 输入的数据。默认为 python 的 dict 或 list 。dict 最好为 record 形式。
+            # need_escape (bool): 处理 {} 使得可以应用于 f-string。标准处理不应该使用，因此默认为 false 。
 
         Returns:
             str: 转换完成的字符串。
@@ -54,19 +54,19 @@ class JsonInputProcessor:
         original_structured_data: dict | list
     ) -> str:
         """
-        使用json库将原本的结构化数据转换为json格式的字符串。
+        使用 json 库将原本的结构化数据转换为 json 格式的字符串。
 
-        数据本身在python中是可以运行的，因此默认是可以正常加载的。
+        数据本身在 python 中是可以运行的，因此默认是可以正常加载的。
 
         Args:
-            original_structured_data (Union[dict, list]): python中已经是结构化数据的dict或list。可以传递额外的kwargs使用其他功能。
+            original_structured_data (Union[dict, list]): python 中已经是结构化数据的 dict 或 list 。可以传递额外的 kwargs 使用其他功能。
 
         Returns:
-            str: 已经转换为json格式的字符串。
+            str: 已经转换为 json 格式的字符串。
         """
         return json.dumps(original_structured_data, ensure_ascii=False)  # 由于中文的原因，需要指定ensure_ascii避免转换。
 
-    # ====基础方法之一。====
+    # ==== 基础方法之一。 ====
     @staticmethod
     def wrap_in_markdown_code_cell(
         json_str: str
