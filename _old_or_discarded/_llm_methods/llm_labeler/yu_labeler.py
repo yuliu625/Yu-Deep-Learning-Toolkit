@@ -15,7 +15,7 @@ from __future__ import annotations
 import asyncio
 
 # 解析和验证结构化数据的工具。可以是我自构建的，需要在具体项目指定具体路径。
-from natural_language_processing.llm_output.structured_data_extractor import StructuredDataExtractor
+from _old_or_discarded._llm_methods.llm_output.structured_data_extractor import StructuredDataExtractor
 from langchain_core.messages import HumanMessage
 
 from typing import TYPE_CHECKING
