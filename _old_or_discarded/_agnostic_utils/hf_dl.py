@@ -1,9 +1,15 @@
 """
-从huggingface上下载模型和数据集的方法。
+Sources:
 
-如果不是因为网络原因，我并不会写这个工具。
+References:
 
-单独配置和运行这个文件，这里会将指定的仓库下载到指定的本地位置。
+Synopsis:
+    稳定维护方法查看: https://github.com/yuliu625/Yu-AI-Inference-Stack/blob/main/model_foundations/transformers/hf_downloader.py
+
+Notes:
+    从 huggingface 上下载模型和数据集的方法。
+    如果不是因为网络原因，我并不会写这个工具。
+    单独配置和运行这个文件，这里会将指定的仓库下载到指定的本地位置。
 """
 
 # TODO: 将这里的方法以对象化进行重构。同时考虑workflow。
