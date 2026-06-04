@@ -1,6 +1,13 @@
 """
-因为pytorch_lightning.utilities中有move_data_to_device这个方法，后续我再没有使用过我写的这个方法。
-后来lightning可以自动处理嵌套数据结构，对分布式环境非常有效，我便再没有使用过相关方法。
+Sources:
+
+References:
+
+Synopsis:
+
+Notes:
+    因为 pytorch_lightning.utilities 中有 move_data_to_device 方法，后续我再没有使用过该自实现的方法。
+    lightning 可以自动处理嵌套数据结构，对分布式环境非常有效，因此我再没有使用过相关方法。
 """
 
 import torch
