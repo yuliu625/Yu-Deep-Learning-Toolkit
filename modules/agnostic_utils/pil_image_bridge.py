@@ -1,8 +1,19 @@
 """
-PIL.Image的部分常见处理方法。
+Sources:
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/agnostic_utils/pil_image_bridge.py
+
+References:
+    None
+
+Synopsis:
+    PIL.Image 的部分常见处理方法。
+
+Notes:
+
 """
 
 from __future__ import annotations
+from loguru import logger
 
 import base64
 from PIL import Image
@@ -14,21 +25,22 @@ from typing import TYPE_CHECKING
 
 class PILImageBridge:
     """
-    PIL.Image的部分常见处理方法。
+    PIL.Image 的部分常见处理方法。
     """
+
     @staticmethod
     def base64_to_pil(
         image_base64: str,
     ) -> Image.Image:
         """
-        将base64字符串转换为原始图片。
+        将 base64 字符串转换为原始图片。
 
         主要用于:
             - 可视化查看图片。测试转换正常。
-            - 读写。转换为模型可接受格式，转换为VLM-API可传输格式。
+            - 读写。转换为模型可接受格式，转换为 VLM-API 可传输格式。
 
         Args:
-            image_base64: 图片的base64编码后的字符串。
+            image_base64: 图片的 base64 编码后的字符串。
 
         Returns:
             Image: 二进制图片格式。
@@ -42,13 +54,13 @@ class PILImageBridge:
         uri: str,
     ) -> str:
         """
-        从uri读取图片转换为base64字符串。
+        从 uri 读取图片转换为 base64 字符串。
 
         Args:
-            uri: 图片的uri。
+            uri: 图片的 uri 。
 
         Returns:
-            str: base64字符串。
+            str: base64 字符串。
         """
         with open(uri, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode("utf-8")
