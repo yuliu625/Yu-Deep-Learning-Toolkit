@@ -1,8 +1,18 @@
 """
-从huggingface上下载模型和数据集的方法。
+Sources:
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/agnostic_utils/hf_downloader.py
 
-我因为网络原因构建了这个工具。
-单独配置和运行这个文件，将指定仓库下载到本地。
+References:
+    https://huggingface.co/docs/huggingface_hub/guides/download
+
+Synopsis:
+    稳定维护方法查看: https://github.com/yuliu625/Yu-AI-Inference-Stack/blob/main/model_foundations/transformers/hf_downloader.py
+
+Notes:
+    从 huggingface 上下载模型和数据集的方法。
+
+    我因为网络原因构建了这个工具。
+    单独配置和运行这个文件，将指定仓库下载到本地。
 """
 
 from __future__ import annotations
