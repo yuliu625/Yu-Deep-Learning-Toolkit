@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/natural_language_processing/llm_reader/dashscope_reader.py
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/natural_language_processing/llm_reader/dashscope_reader.py
 
 References:
     https://help.aliyun.com/zh/model-studio/long-context-qwen-long
