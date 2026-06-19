@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/natural_language_processing/zero_shot_classification/zero_shot_classifier.py
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/src/natural_language_processing/zero_shot_classification/zero_shot_classifier.py
 
 References:
     None
