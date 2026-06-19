@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/agnostic_utils/pil_image_bridge.py
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/src/agnostic_utils/pil_image_bridge.py
 
 References:
     None
