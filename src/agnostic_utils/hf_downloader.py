@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/modules/agnostic_utils/hf_downloader.py
+    https://github.com/yuliu625/Yu-Deep-Learning-Toolkit/blob/main/src/agnostic_utils/hf_downloader.py
 
 References:
     https://huggingface.co/docs/huggingface_hub/guides/download
